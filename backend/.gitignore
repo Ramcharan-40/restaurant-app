@@ -1,0 +1,4 @@
+node_modules/
+dist/
+restaurant.db
+.env
