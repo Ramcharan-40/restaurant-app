@@ -6,7 +6,7 @@ import { requireAuth } from '../middleware/auth';
 const router = Router();
 
 // GET all available items
-router.get('/', requireAuth,(_req, res) => {
+router.get('/',(_req, res) => {
   const items = db.prepare('SELECT * FROM menu_items ORDER BY category').all();
   res.json(items);
 });
