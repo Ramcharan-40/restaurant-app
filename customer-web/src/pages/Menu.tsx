@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import api from '../api/clinet.ts';
 import { useCart } from '../context/CartContext';
+import AskAadhya from '../components/AskAadhya';
 
 interface MenuItem {
   id: number;
@@ -133,6 +134,7 @@ export default function Menu() {
           </button>
         </div>
       )}
+      <AskAadhya menuItems={items} />
     </div>
   );
 }

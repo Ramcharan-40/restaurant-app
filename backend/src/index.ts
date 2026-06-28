@@ -4,6 +4,7 @@ import { Server } from 'socket.io';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth';
+import aiRoutes from './routes/ai';
 // ...
 
 import menuRoutes from './routes/menu';
@@ -22,6 +23,7 @@ export const io = new Server(httpServer, {
 app.use(cors());
 app.use(express.json());
 app.use('/api/auth', authRoutes);
+app.use('/api/ai', aiRoutes);
 
 // Health check — keeps Render free tier awake
 app.get('/health', (_req, res) => res.json({ status: 'ok' }));

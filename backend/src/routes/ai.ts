@@ -42,7 +42,6 @@ Rules:
     );
 
     const data = await response.json();
-
     const raw = (data.candidates?.[0]?.content?.parts || [])
       .map((p: any) => p.text || '')
       .join('')
