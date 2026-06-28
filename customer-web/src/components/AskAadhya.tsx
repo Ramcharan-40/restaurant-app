@@ -163,7 +163,7 @@ export default function AskAadhya({ menuItems }: { menuItems: MenuItem[] }) {
 
       <style>{`
         .aw-launcher {
-          position: fixed; bottom: 90px; right: 18px; z-index: 50;
+          position: fixed; bottom: 140px; right: 18px; z-index: 50;
           background: #dc5b00; color: #fff; border: none;
          font-weight: 600; font-size: 14px; cursor: pointer;padding: 12px;
           box-shadow: 0 6px 18px rgba(220,91,0,0.4);
@@ -267,9 +267,9 @@ export default function AskAadhya({ menuItems }: { menuItems: MenuItem[] }) {
           border-radius: 999px; font-size: 12px; white-space: nowrap;
         }
         @media (max-width: 480px) {
-          .aw-panel { left: 12px; right: 12px; bottom: 12px; width: auto; }
-          .aw-launcher { bottom: 80px; right: 12px; }
-        }
+            .aw-panel { left: 12px; right: 12px; bottom: 12px; width: auto; }
+            .aw-launcher { bottom: 140px; right: 12px; }
+            }
       `}</style>
     </>
   );
