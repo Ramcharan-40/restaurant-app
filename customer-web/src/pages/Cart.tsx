@@ -29,7 +29,7 @@ export default function Cart() {
     return (
       <div style={{ padding: '24px', textAlign: 'center' }}>
         <p style={{ color: '#ff0000', marginBottom: '16px' }}>Your cart is empty.</p>
-        <button onClick={() => navigate(`/table/${tableId}`)} style={{ background: '#dc5b00', color: '#fff', padding: '10px 20px', borderRadius: '6px' }}>
+        <button onClick={() => navigate(`/table/${tableId}`)} style={{ background: '#dc5b00', color: '#fff', padding: '10px 20px', borderRadius: '6px',border:'none', fontWeight:600 }}>
           Back to Menu
         </button>
       </div>
@@ -104,7 +104,7 @@ export default function Cart() {
           onClick={placeOrder}
           disabled={placing}
           style={{
-            width: '100%', background: '#dc5b00', color: '#fff',
+            width: '100%', background: '#dc5b00', color: '#fff',border: 'none',
             padding: '14px', borderRadius: '8px', fontWeight: 700, fontSize: '15px',
             opacity: placing ? 0.6 : 1,
           }}
