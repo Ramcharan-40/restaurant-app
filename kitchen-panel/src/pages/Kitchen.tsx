@@ -73,66 +73,45 @@ export default function Kitchen() {
 
   return (
     <div>
-      <header style={{background:"#dc5b00", marginBottom: '20px', display: 'flex' ,flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center',padding: '20px 0'}}>
-        <div ><img
-        src="/aadhyalogo.png"
-        alt="Hotel Aadhya"
-        style={{
-          height: '48px',
-          objectFit: 'contain',
-          marginRight: '16px',
-          color: '#fff',
-        }}
-      />
-      </div>
-        <span style={{
-          fontFamily: "'Great Vibes', cursive",
-          fontSize: '32px',
-          color: '#ffffff',       /* the red from the logo */
-          letterSpacing: '1px',
-        }}>
+      <header className="kitchen-header">
+        <div>
+          <img
+            src="/aadhyalogo.png"
+            alt="Hotel Aadhya"
+            className="kitchen-logo"
+          />
+        </div>
+        <span className="kitchen-brand-name">
           Hotel Aadhya
         </span>
-      <div style={{
-        fontFamily: 'sans-serif',
-        fontSize: '10px',
-        color: '#ffffff',
-        letterSpacing: '2px',
-        textTransform: 'uppercase',
-      }}>
-        Take a seat have a treat
-      </div>
-        <h1 style={{ fontSize: '20px' }}>🍳 Kitchen Dashboard</h1>
-        
-          <span style={{ padding:'5px',width: 'auto',height: '10%',borderRadius: '8px', background: '#ffffff', fontWeight: 'bold', fontSize: '18px', color: socket.connected ? '#5ea862' : '#c62828' }}>
-            {socket.connected ? '● Live' : '● Disconnected'}
-          </span>
-    
+        <div className="kitchen-tagline">
+          Take a seat have a treat
+        </div>
+        <h1 className="kitchen-title">🍳 Kitchen Dashboard</h1>
+
+        <span className="kitchen-status-badge" style={{ color: socket.connected ? '#5ea862' : '#c62828' }}>
+          {socket.connected ? '● Live' : '● Disconnected'}
+        </span>
       </header>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', padding: '0 24px', marginBottom: '40px' }}>
+      <div className="kitchen-grid">
         {COLUMNS.map(col => (
           <div key={col.key}>
-            <h2 style={{ fontSize: '14px', marginBottom: '12px', textTransform: 'uppercase', color: '#666' }}>
+            <h2 className="kitchen-column-title">
               {col.label} ({visibleOrders.filter(o => o.status === col.key).length})
             </h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', minHeight: '60px' }}>
+            <div className="kitchen-column-cards">
               {visibleOrders
                 .filter(o => o.status === col.key)
                 .map(order => (
-                  <div key={order.id} style={{
-                    background: col.color,
-                    borderRadius: '10px',
-                    padding: '14px',
-                    boxShadow: '0 1px 3px rgba(0,0,0,0.08)',
-                  }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                  <div key={order.id} className="kitchen-card" style={{ background: col.color }}>
+                    <div className="kitchen-card-header">
                       <strong>Table {order.table_number}</strong>
-                      <span style={{ fontSize: '12px', color: '#666' }}>
+                      <span className="kitchen-card-time">
                         {new Date(order.created_at).toLocaleTimeString()}
                       </span>
                     </div>
-                    <ul style={{ paddingLeft: '16px', marginBottom: '10px', fontSize: '13px' }}>
+                    <ul className="kitchen-card-items">
                       {order.items.map((item, i) => (
                         <li key={i}>{item.name} × {item.quantity}</li>
                       ))}
@@ -140,16 +119,7 @@ export default function Kitchen() {
                     {NEXT_STATUS[order.status] && (
                       <button
                         onClick={() => advanceStatus(order)}
-                        style={{
-                          width: '100%',
-                          background: '#1a1a1a',
-                          color: '#fff',
-                          padding: '8px',
-                          borderRadius: '6px',
-                          fontSize: '13px',
-                          fontWeight: 600,
-                          textTransform: 'capitalize',
-                        }}
+                        className="kitchen-card-btn"
                       >
                         Mark as {NEXT_STATUS[order.status]} →
                       </button>
@@ -160,6 +130,152 @@ export default function Kitchen() {
           </div>
         ))}
       </div>
+
+      <style>{`
+        .kitchen-header {
+          background: #dc5b00;
+          margin-bottom: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px 0;
+        }
+
+        .kitchen-logo {
+          height: 48px;
+          object-fit: contain;
+          margin-right: 16px;
+          color: #fff;
+        }
+
+        .kitchen-brand-name {
+          font-family: 'Great Vibes', cursive;
+          font-size: 32px;
+          color: #ffffff;
+          letter-spacing: 1px;
+        }
+
+        .kitchen-tagline {
+          font-family: sans-serif;
+          font-size: 10px;
+          color: #ffffff;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+        }
+
+        .kitchen-title {
+          font-size: 20px;
+          color: #fff;
+        }
+
+        .kitchen-status-badge {
+          padding: 5px 10px;
+          width: auto;
+          height: 10%;
+          border-radius: 8px;
+          background: #ffffff;
+          font-weight: bold;
+          font-size: 18px;
+        }
+
+        .kitchen-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 16px;
+          padding: 0 24px;
+          margin-bottom: 40px;
+        }
+
+        .kitchen-column-title {
+          font-size: 14px;
+          margin-bottom: 12px;
+          text-transform: uppercase;
+          color: #666;
+        }
+
+        .kitchen-column-cards {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          min-height: 60px;
+        }
+
+        .kitchen-card {
+          border-radius: 10px;
+          padding: 14px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        .kitchen-card-header {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 8px;
+        }
+
+        .kitchen-card-time {
+          font-size: 12px;
+          color: #666;
+        }
+
+        .kitchen-card-items {
+          padding-left: 16px;
+          margin-bottom: 10px;
+          font-size: 13px;
+        }
+
+        .kitchen-card-btn {
+          width: 100%;
+          background: #1a1a1a;
+          color: #fff;
+          padding: 8px;
+          border-radius: 6px;
+          font-size: 13px;
+          font-weight: 600;
+          text-transform: capitalize;
+        }
+
+        /* Tablet — 2 columns */
+        @media (max-width: 900px) {
+          .kitchen-grid {
+            grid-template-columns: repeat(2, 1fr);
+            padding: 0 16px;
+          }
+        }
+
+        /* Phone — header shrinks, grid goes to 1 column */
+        @media (max-width: 480px) {
+          .kitchen-header {
+            padding: 14px 0;
+          }
+
+          .kitchen-logo {
+            height: 36px;
+          }
+
+          .kitchen-brand-name {
+            font-size: 22px;
+          }
+
+          .kitchen-tagline {
+            font-size: 9px;
+          }
+
+          .kitchen-title {
+            font-size: 16px;
+          }
+
+          .kitchen-status-badge {
+            font-size: 14px;
+          }
+
+          .kitchen-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 0 12px;
+          }
+        }
+      `}</style>
     </div>
   );
 }
@@ -167,5 +283,5 @@ export default function Kitchen() {
 function isRecent(createdAt: string) {
   const orderTime = new Date(createdAt.replace(' ', 'T') + 'Z').getTime();
   const now = Date.now();
-  return now - orderTime < 1000 * 60 * 60*4 ; // shown for 4 hours
+  return now - orderTime < 1000 * 60 * 60 * 4; // shown for 4 hours
 }
