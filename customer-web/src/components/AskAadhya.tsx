@@ -66,15 +66,29 @@ export default function AskAadhya({ menuItems }: { menuItems: MenuItem[] }) {
   return (
     <>
       {!open && (
-        <button onClick={openChat} className="aw-launcher">
-          🍽️ Ask Aadhya
+        <button onClick={openChat} className="aw-launcher" style={{ marginRight: '16px' }}>
+        <img
+        src="/aadhyalogo.png"
+        alt="Hotel Aadhya"
+        style={{
+          color: '#fff',
+          height: '24px',
+        }}
+      /> 
         </button>
       )}
 
       {open && (
         <div className="aw-panel">
           <div className="aw-header">
-            <div className="aw-avatar">🍽️</div>
+            <div className="aw-avatar"><img
+        src="/aadhyalogo.png"
+        alt="Hotel Aadhya"
+        style={{
+          color: '#fff',
+          height: '24px',
+        }}
+      /> </div>
             <div>
               <div className="aw-header-name">Ask Aadhya</div>
               <div className="aw-header-sub">YOUR PERSONAL FOOD GUIDE</div>
@@ -150,9 +164,10 @@ export default function AskAadhya({ menuItems }: { menuItems: MenuItem[] }) {
       <style>{`
         .aw-launcher {
           position: fixed; bottom: 90px; right: 18px; z-index: 50;
-          background: #dc5b00; color: #fff; border: none; border-radius: 999px;
-          padding: 13px 20px; font-weight: 600; font-size: 14px; cursor: pointer;
+          background: #dc5b00; color: #fff; border: none;
+         font-weight: 600; font-size: 14px; cursor: pointer;padding: 12px;
           box-shadow: 0 6px 18px rgba(220,91,0,0.4);
+          border-radius: 30px 30px 10px 30px;
         }
         .aw-panel {
           position: fixed; bottom: 16px; right: 16px; z-index: 50;
@@ -166,7 +181,7 @@ export default function AskAadhya({ menuItems }: { menuItems: MenuItem[] }) {
           display: flex; align-items: center; gap: 10px; flex-shrink: 0;
         }
         .aw-avatar {
-          width: 34px; height: 34px; border-radius: 50%; background: #fff;
+          width: 34px; height: 34px; border-radius: 50%; background: #dc5b00; display: flex; align-items: center; justify-content: center;
           display: flex; align-items: center; justify-content: center; font-size: 17px;
         }
         .aw-header-name { font-size: 15px; font-weight: 700; color: #fff; }
@@ -238,6 +253,7 @@ export default function AskAadhya({ menuItems }: { menuItems: MenuItem[] }) {
         .aw-input {
           flex: 1; border: 1px solid #f0ddc8; border-radius: 999px;
           padding: 9px 15px; font-size: 13px; outline: none;
+          background: #fff; color: #2b1a12; min-height: 38px;
         }
         .aw-input:focus { border-color: #dc5b00; }
         .aw-send {
