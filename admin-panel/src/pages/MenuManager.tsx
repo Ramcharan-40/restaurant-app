@@ -134,6 +134,8 @@ export default function MenuManager() {
                 padding: '14px 18px',
                 marginBottom: '8px',
                 display: 'flex',
+                flexWrap: 'wrap',          // ← added
+                gap: '10px',
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 boxShadow: '0 1px 3px rgba(0,0,0,0.06)',

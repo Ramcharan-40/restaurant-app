@@ -38,7 +38,8 @@ export default function QRCodes() {
 
   return (
     <div style={{ padding: '24px', maxWidth: '900px', margin: '0 auto' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px',flexWrap: 'wrap',
+  gap: '12px' }}>
         <h2>Table QR Codes</h2>
         <button
           onClick={() => window.print()}

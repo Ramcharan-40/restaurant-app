@@ -38,7 +38,8 @@ export default function Orders() {
             marginBottom: '12px',
             boxShadow: '0 1px 4px rgba(0,0,0,0.07)',
           }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px',  flexWrap: 'wrap',     // ← added
+  gap: '8px' }}>
               <span style={{ fontWeight: 700 }}>Table {order.table_number}</span>
               <span style={{
                 background: STATUS_COLORS[order.status] || '#eee',

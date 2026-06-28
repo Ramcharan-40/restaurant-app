@@ -93,10 +93,11 @@ export default function Menu() {
                     style={{
                       background: inCart ? '#1f8928' : '#dc5b00',
                       color: inCart ? '#ffffff' : '#fff',
-                      padding: '8px 16px',
+                      padding: '10px 18px',
                       borderRadius: '6px',
                       border: 'none',
                       fontWeight: 600,
+                      minHeight: '40px',
                     }}
                   >
                     {inCart ? `Added ×${inCart.quantity}` : 'Add'}
