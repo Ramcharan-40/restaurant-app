@@ -104,7 +104,7 @@ export default function Kitchen() {
       </div>
         <h1 style={{ fontSize: '20px' }}>🍳 Kitchen Dashboard</h1>
         
-          <span style={{ width: '10%',height: '10%',borderRadius: '8px', background: '#ffffff', fontWeight: 'bold', fontSize: '18px', color: socket.connected ? '#5ea862' : '#c62828' }}>
+          <span style={{ padding:'5px',width: 'auto',height: '10%',borderRadius: '8px', background: '#ffffff', fontWeight: 'bold', fontSize: '18px', color: socket.connected ? '#5ea862' : '#c62828' }}>
             {socket.connected ? '● Live' : '● Disconnected'}
           </span>
     
